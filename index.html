@@ -226,8 +226,8 @@ body.w7 #login small,body.w7 .acc{color:#cfe6ff}body.w7 .spin{border-top-color:#
 
 /* ===== NEW: desktop icons, mail, virus ===== */
 #dk{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:14px;z-index:6;display:flex;flex-direction:column;gap:10px}
-.ic{width:80px;padding:8px 4px 6px;background-color:#0c0c0c;background-image:linear-gradient(rgba(232,232,232,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(232,232,232,.28) 1px,transparent 1px);background-size:100% 50%,50% 100%;border:2px solid #e8e8e8;border-radius:2px;color:#fff;font:12px "Segoe UI",Tahoma,sans-serif;text-shadow:0 0 4px #000,0 1px 2px #000;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.5)}
-.ic:hover,.ic:focus-visible{border-color:#fff;box-shadow:0 0 12px rgba(255,255,255,.6);outline:none}
+.ic{width:80px;padding:8px 4px 6px;background:none;border:2px solid transparent;border-radius:2px;color:#fff;font:12px "Segoe UI",Tahoma,sans-serif;text-shadow:0 0 4px #000,0 1px 2px #000;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
+.ic:hover,.ic:focus-visible{background:rgba(255,255,255,.2);outline:none}
 .ic img{width:48px;height:48px;object-fit:contain;display:block}
 .ic img.missing{display:none}
 .ic b{display:none;font-size:36px;line-height:48px;font-weight:400}
@@ -371,7 +371,7 @@ body.sw .vw{transition:none}
 <div id="dk">
  <button class="ic" id="ic-t"><img src="Trash.png" alt="" onerror="this.classList.add('missing')"><b>🗑</b><span>Papperskorg</span></button>
  <button class="ic" id="ic-m"><img src="Mail.png" alt="" onerror="this.classList.add('missing')"><b>📧</b><span>E-post</span></button>
- <button class="ic" id="ic-r"><img src="Robloxlogo.webp" alt="" onerror="this.classList.add('missing')"><b>🎮</b><span>Roblox</span></button>
+ <button class="ic" id="ic-r"><img src="Robloxlogo.png" alt="" onerror="this.classList.add('missing')"><b>🎮</b><span>Roblox</span></button>
 </div>
 <div id="mp" role="button" tabindex="0" aria-label="Öppna E-post"><div class="mpt"><span>📧</span><span>Windows Live Mail</span><button class="mpx" type="button" aria-label="Stäng">✕</button></div><div class="mpb"><em>📧</em><div><strong>YOU GOT MAIL!</strong><small>Klicka för att öppna din inkorg</small></div></div></div>
 <div id="vt"></div>
