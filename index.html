@@ -1088,6 +1088,7 @@ body.w7.th-vista #bt .wnb,body.w7.th-vista #cm .cmb{background:rgba(255,255,255,
   <div class="spl">
    <button class="sg" data-g="google"><span>🔍</span>Evil Google</button>
    <button class="sg" data-g="mines"><span>💣</span>Evil Minesweeper</button>
+   <button class="sg" data-g="tyson"><span>🐂</span>Escape from Tjuren Tyson</button>
    <button class="sg" data-g="scary"><span>😱</span>Scary Game!!</button>
    <button class="sg" data-g="lars"><span>👁</span>Evil Lars</button>
    <button class="sg" data-g="roblox"><span>🎮</span>Roblox</button>
@@ -1236,7 +1237,7 @@ body.w7.th-vista #bt .wnb,body.w7.th-vista #cm .cmb{background:rgba(255,255,255,
  document.addEventListener('click',function(e){if(!$('pop').contains(e.target))toggle(false)});
  document.addEventListener('keydown',function(e){if(e.key==='Escape')toggle(false)});
  /* startmeny + flikar */
- var GN={scary:['😱','Scary Game!!'],google:['🔍','Evil Google'],mines:['💣','Evil Minesweeper'],lars:['👁','Evil Lars'],trash:['🗑','Papperskorgen'],mail:['📧','E-post'],roblox:['🎮','Roblox']};
+ var GN={scary:['😱','Scary Game!!'],tyson:['🐂','Tjuren Tyson'],google:['🔍','Evil Google'],mines:['💣','Evil Minesweeper'],lars:['👁','Evil Lars'],trash:['🗑','Papperskorgen'],mail:['📧','E-post'],roblox:['🎮','Roblox']};
  GN.tyson[1]='Escape from Tjuren Tyson';
  var NORMAL=false,tabs=[],act=null,mini=null,scene=$('scene'),sm=$('sm');
  function normal(){NORMAL=true;document.body.classList.add('w7');
