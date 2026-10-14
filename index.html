@@ -288,7 +288,13 @@ body.w7.th-xp .tab{background:linear-gradient(#fff,#ece9d8);color:#000;text-shad
 body.w7.th-xp .tab.on{background:#fff}
 body.w7.th-xp .bar{height:36px;background:linear-gradient(#3168d5,#245edc 12%,#1d54d0 50%,#2a63da 90%,#1941a5);border-top:1px solid #5b8bf0;-webkit-backdrop-filter:none;backdrop-filter:none;padding-left:0}
 body.w7.th-xp .start{height:36px;width:104px;border-radius:0 14px 14px 0;background:linear-gradient(#5ab04c,#3c9a2c 20%,#2e8a1f 80%,#4aa63c);box-shadow:inset 0 2px 3px rgba(255,255,255,.4),2px 0 4px rgba(0,0,0,.4);color:#fff;font:italic bold 19px "Trebuchet MS",Arial,sans-serif;text-shadow:1px 1px 2px #000;justify-content:center}
-body.w7.th-xp .start .orb,body.w7.th-vista .start .orb,body.w7.th-95 .start .orb{display:none}
+body.w7.th-xp .start .orb,body.w7.th-vista .start .orb,body.w7.th-95 .start .orb{display:block;height:100%;width:auto;max-height:100%;object-fit:contain}
+body.w7.th-xp .start:after,body.w7.th-vista .start:after,body.w7.th-95 .start:after{display:none}
+body.w7.th-xp .start{padding:0 8px 0 4px;gap:4px}
+body.w7.th-xp .start .orb{height:28px;max-height:28px}
+body.w7.th-vista .start .orb{height:42px;width:42px;border-radius:50%}
+body.w7.th-95 .start .orb{height:20px;max-height:20px}
+body.w7.th-95 .start{padding:0 6px;gap:4px}
 body.w7.th-xp .start:after{content:"⊞ start"}
 body.w7.th-xp .bar .clock{height:36px;padding:0 12px;border:0;border-left:1px solid #0b3bb5;border-radius:0;background:linear-gradient(#17a1ee,#0f84e3)}
 body.w7.th-xp #sm{bottom:36px;background:#d3e5fa;border:2px solid #0a3fd4;border-radius:8px 8px 0 0;box-shadow:3px 3px 8px rgba(0,0,0,.5);-webkit-backdrop-filter:none;backdrop-filter:none}
@@ -1038,6 +1044,14 @@ body.w7.th-vista #bt .wnh,body.w7.th-vista #cm .wnh{
   background:transparent!important;color:#000!important;text-shadow:0 0 8px #fff!important}
 body.w7.th-vista #bt .wnb,body.w7.th-vista #cm .cmb{background:rgba(255,255,255,.88)!important;border:1px solid rgba(100,130,160,.5)!important}
 
+
+body.w7.th-xp .start .orb.missing{display:none}
+body.w7.th-xp .start:has(.orb.missing):after{display:inline;content:"⊞ start"}
+body.w7.th-vista .start .orb.missing{display:none}
+body.w7.th-vista .start:has(.orb.missing):after{display:inline;content:"⊞"}
+body.w7.th-95 .start .orb.missing{display:none}
+body.w7.th-95 .start:has(.orb.missing):after{display:inline;content:"⊞ Start"}
+
 </style>
 </head>
 <body class="w7">
@@ -1335,7 +1349,9 @@ body.w7.th-vista #bt .wnb,body.w7.th-vista #cm .cmb{background:rgba(255,255,255,
  function tone(f,d,t0){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();var o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+(t0||0);o.type='square';o.frequency.value=f;g.gain.setValueAtTime(.12*MASTER,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d+.02)}catch(x){}}
  function setVol(v){MASTER=Math.max(0,Math.min(1,v));['er','su','ma'].forEach(function(i){$(i).volume=MASTER});ls('vol',MASTER)}
  function applyFx(){var h=document.documentElement,f=[];if(fx.bri!==1)f.push('brightness('+fx.bri+')');if(fx.hc)f.push('contrast(1.5) saturate(1.3)');h.style.filter=f.join(' ');h.classList.toggle('noanim',fx.noan)}
- function setTheme(t){THEME=t;var b=document.body;['vista','xp','95'].forEach(function(k){b.classList.remove('th-'+k)});if(t!=='w7')b.classList.add('th-'+t);ls('theme',t)}
+ function setTheme(t){THEME=t;var b=document.body;['vista','xp','95'].forEach(function(k){b.classList.remove('th-'+k)});if(t!=='w7')b.classList.add('th-'+t);ls('theme',t);
+  var orb=document.querySelector('.start .orb');if(orb){var map={w7:'Windows7.png',xp:'WindowsXP.png',vista:'WindowsVista.png','95':'Windows95.png'};
+   orb.classList.remove('missing');orb.src=map[t]||'Windows7.png';orb.onerror=function(){this.classList.add('missing')}}}
 
  /* ---- virtuellt filsystem med skämtfiler ---- */
  function NF(name,icon,kind,x){var o={name:name,icon:icon,kind:kind},k;for(k in x)o[k]=x[k];return o}
